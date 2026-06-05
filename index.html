@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Bridge Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="sidebar">
+
+    <h2>Campus Bridge</h2>
+
+    <ul>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-user-graduate"></i>
+                Students
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-chalkboard-teacher"></i>
+                Faculty
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-book"></i>
+                Courses
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-file-alt"></i>
+                Assignments
+            </a>
+        </li>
+
+        <!-- Previous Year Papers -->
+        <li>
+            <a href="https://haldwani.gehu.in/pyqs/" target="_blank">
+                <i class="fas fa-file-pdf"></i>
+                Previous Year Papers
+            </a>
+        </li>
+
+        <!-- Book Store -->
+        <li>
+            <a href="bookstore.html">
+                <i class="fas fa-book-open"></i>
+                Book Store
+            </a>
+        </li>
+
+        <!-- Academic Calendar -->
+        <li>
+            <a href="https://geu.ac.in/academic_calendar/1774509206.pdf" target="_blank">
+                <i class="fas fa-calendar-alt"></i>
+                Academic Calendar
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-calendar-check"></i>
+                Attendance
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fas fa-chart-line"></i>
+                Results
+            </a>
+        </li>
+
+        <li>
+            <a href="notice.html" target="_blank">
+                <i class="fas fa-bullhorn"></i>
+                Notice Board
+            </a>
+        </li>
+
+        <!-- Student Registration -->
+        <li>
+            <a href="index2.html" target="_blank">
+                <i class="fas fa-user-plus"></i>
+                Student Registration
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>Campus Bridge Dashboard</h1>
+        <div class="profile">Admin</div>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <p id="studentCount">Loading...</p>
+        </div>
+
+        <div class="card">
+            <h3>Faculty</h3>
+            <p>85</p>
+        </div>
+
+        <div class="card">
+            <h3>Courses</h3>
+            <p>24</p>
+        </div>
+
+        <div class="card">
+            <h3>Attendance</h3>
+            <p>92%</p>
+        </div>
+
+    </div>
+
+    <div class="section">
+    </div>
+
+</div>
+
+<script>
+
+function loadStudentCount() {
+
+    fetch("get_student_count.php")
+    .then(response => response.text())
+    .then(data => {
+
+        document.getElementById("studentCount").innerText = data;
+
+    })
+    .catch(error => {
+
+        document.getElementById("studentCount").innerText = "Error";
+
+        console.log(error);
+
+    });
+
+}
+
+loadStudentCount();
+
+</script>
+
+</body>
+</html>
